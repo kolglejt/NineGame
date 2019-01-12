@@ -9,10 +9,10 @@ const Stars = (props) => {
   return(
 
       <div className='col-5'>
-          <FontAwesomeIcon icon="star" />
-          <FontAwesomeIcon icon="star" />
-          <FontAwesomeIcon icon="star" />
-          <FontAwesomeIcon icon="star" />
+          <FontAwesomeIcon className='star' icon="star" />
+          <FontAwesomeIcon className='star' icon="star" />
+          <FontAwesomeIcon className='star' icon="star" />
+          <FontAwesomeIcon className='star' icon="star" />
       </div>
 
   );
