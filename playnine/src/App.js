@@ -6,13 +6,15 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 library.add(faStar);
 
 const Stars = (props) => {
+    const numberOfStars = 1+ Math.floor( Math.random()*9); //between 1-9
+    let stars = [];
+    for (let i=0; i<numberOfStars; i++){
+        stars.push(<FontAwesomeIcon key={i} className='star' icon="star" />);
+    }
   return(
 
       <div className='col-5'>
-          <FontAwesomeIcon className='star' icon="star" />
-          <FontAwesomeIcon className='star' icon="star" />
-          <FontAwesomeIcon className='star' icon="star" />
-          <FontAwesomeIcon className='star' icon="star" />
+          {stars}
       </div>
 
   );
