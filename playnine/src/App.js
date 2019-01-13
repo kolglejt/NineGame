@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
+import _ from 'lodash'; //Lodash
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; //FontAwesome
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 library.add(faStar);
+
 
 const Stars = (props) => {
     const numberOfStars = 1+ Math.floor( Math.random()*9); //between 1-9
@@ -32,24 +34,30 @@ const Answer = (props) => {
     return(
 
         <div className='col-5'>
-          ....
+          <span></span>
+            <span></span>
         </div>
 
     );
 };
 const Numbers = (props) => {
+    //const arrayOfNumbers = _.range(1, 10); //lodash
     return (
         <div className='card text-center'>
             <div>
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
+                {Numbers.list.map((number,i) =>
+                <span key={i}>{number}</span>
+                )}
             </div>
         </div>
 
 
     )
-}
+};
+
+Numbers.list = _.range(1, 10); //lodash
+
+
 class Game extends React.Component {
     render () {
         return (
