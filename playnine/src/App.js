@@ -31,22 +31,28 @@ const Button = (props) => {
     );
 };
 const Answer = (props) => {
-    return(
+    return (
 
         <div className='col-5'>
-          <span></span>
-            <span></span>
+            {props.selectedNumbers.map((number,i) =>
+                <span key={i}>{number}</span>
+            )}
         </div>
 
     );
 };
 const Numbers = (props) => {
     //const arrayOfNumbers = _.range(1, 10); //lodash
+    const numberClassName = (number) => {
+        if(props.selectedNumbers.indexOf(number)>=0) {
+            return 'selected';
+        }
+    }; //it will receive a number and check if that number is included in the selectedNumbers array
     return (
         <div className='card text-center'>
             <div>
                 {Numbers.list.map((number,i) =>
-                <span key={i}>{number}</span>
+                <span key={i} className={numberClassName(number)} onClick={() => props.selectNumber(number)}>{number}</span> //give class selected on number el
                 )}
             </div>
         </div>
@@ -59,6 +65,16 @@ Numbers.list = _.range(1, 10); //lodash
 
 
 class Game extends React.Component {
+    state = {
+        selectedNumbers: [],
+
+    };
+    selectNumber =(clickedNumber) => {
+        this.setState(prevState => ({
+                selectedNumbers: prevState.selectedNumbers.concat(clickedNumber)
+            }));
+
+    };
     render () {
         return (
             <div className='container'>
@@ -68,10 +84,12 @@ class Game extends React.Component {
 
                     <Stars/>
               <Button/>
-              <Answer/>
+              <Answer selectedNumbers={this.state.selectedNumbers}/>
                 </div>
                 <br />
-                <Numbers/>
+                <Numbers selectedNumbers={this.state.selectedNumbers}
+                         selectNumber={this.selectNumber}
+                />
             </div>
         );
     }
