@@ -8,7 +8,8 @@ library.add(faStar);
 
 
 const Stars = (props) => {
-    const numberOfStars = 1+ Math.floor( Math.random()*9); //between 1-9
+
+    const numberOfStars = props.numberOfStars; //between 1-9
     let stars = [];
     for (let i=0; i<numberOfStars; i++){
         stars.push(<FontAwesomeIcon key={i} className='star' icon="star" />);
@@ -20,7 +21,8 @@ const Stars = (props) => {
       </div>
 
   );
-};
+
+}
 const Button = (props) => {
     return(
 
@@ -41,25 +43,29 @@ const Answer = (props) => {
 
     );
 };
-const Numbers = (props) => {
-    //const arrayOfNumbers = _.range(1, 10); //lodash
-    const numberClassName = (number) => {
-        if(props.selectedNumbers.indexOf(number)>=0) {
-            return 'selected';
-        }
-    }; //it will receive a number and check if that number is included in the selectedNumbers array
-    return (
-        <div className='card text-center'>
-            <div>
-                {Numbers.list.map((number,i) =>
-                <span key={i} className={numberClassName(number)} onClick={() => props.selectNumber(number)}>{number}</span> //give class selected on number el
-                )}
+class Numbers extends React.Component {
+    render() {
+        //const arrayOfNumbers = _.range(1, 10); //lodash
+        const numberClassName = (number) => {
+            if (this.props.selectedNumbers.indexOf(number) >= 0) {
+                return 'selected';
+            }
+        }; //it will receive a number and check if that number is included in the selectedNumbers array
+
+        return (
+            <div className='card text-center'>
+                <div>
+                    {Numbers.list.map((number, i) =>
+                        <span key={i} className={numberClassName(number)}
+                              onClick={() => this.props.selectNumber(number)}>{number}</span> //give class selected on number el
+                    )}
+                </div>
             </div>
-        </div>
 
 
-    )
-};
+        )
+    }
+}
 
 Numbers.list = _.range(1, 10); //lodash
 
@@ -67,6 +73,7 @@ Numbers.list = _.range(1, 10); //lodash
 class Game extends React.Component {
     state = {
         selectedNumbers: [],
+        numberOfStars: 1 + Math.floor(Math.random() * 9),
 
     };
     selectNumber =(clickedNumber) => {
@@ -82,7 +89,7 @@ class Game extends React.Component {
                 <h3>Play Nine</h3>
                 <div className="row">
 
-                    <Stars/>
+                    <Stars numberOfStars = {this.state.numberOfStars}/>
               <Button/>
               <Answer selectedNumbers={this.state.selectedNumbers}/>
                 </div>
