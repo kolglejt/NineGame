@@ -27,7 +27,7 @@ const Button = (props) => {
     return(
 
         <div className='col-2'>
-          <button>=</button>
+            <button className='btn' disabled={props.selectedNumbers.length ===0 }>=</button>
         </div>
 
     );
@@ -100,7 +100,7 @@ class Game extends React.Component {
                 <div className="row">
 
                     <Stars numberOfStars = {this.state.numberOfStars}/>
-              <Button/>
+              <Button selectedNumbers={this.state.selectedNumbers}/>
               <Answer selectedNumbers={this.state.selectedNumbers}
                       unselectNumber={this.unselectNumber}/>
                 </div>
