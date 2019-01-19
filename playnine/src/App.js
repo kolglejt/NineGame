@@ -4,7 +4,11 @@ import _ from 'lodash'; //Lodash
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; //FontAwesome
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 library.add(faStar);
+library.add(faCheck);
+library.add(faTimes);
 
 
 const Stars = (props) => {
@@ -24,10 +28,29 @@ const Stars = (props) => {
 
 }
 const Button = (props) => {
+    let button;
+    switch (props.isAnswerCorrect) {
+        case true:
+            button =
+                <button className='btn btn-success'> <FontAwesomeIcon className='fa-check' icon="check"/> </button>;
+                //FontAwesomeIcon className='fa-check' icon="check"
+            break;
+        case false:
+            button =
+                <button className='btn btn-danger'> <FontAwesomeIcon className='fa-times' icon="times"/> </button>;
+            break;
+        default:
+            button =
+                <button className='btn'
+                        onClick={props.checkAnswer}
+                        disabled={props.selectedNumbers.length ===0}>
+                = </button>
+
+    }
     return(
 
         <div className='col-2'>
-            <button className='btn' disabled={props.selectedNumbers.length ===0 }>=</button>
+            {button}
         </div>
 
     );
@@ -77,6 +100,7 @@ class Game extends React.Component {
     state = {
         selectedNumbers: [],
         numberOfStars: 1 + Math.floor(Math.random() * 9),
+        isAnswerCorrect: null,
 
     };
     selectNumber =(clickedNumber) => {
@@ -91,7 +115,14 @@ class Game extends React.Component {
             selectedNumbers: prevState.selectedNumbers.filter(number => number !== clickedNumber)
         }));
 
-    }
+    };
+    checkAnswer = () => {
+        this.setState(prevState => ({
+            isAnswerCorrect: prevState.numberOfStars ===
+                prevState.selectedNumbers.reduce((acc,n) => acc + n, 0)
+
+        }));
+    };
     render () {
         return (
             <div className='container'>
@@ -100,7 +131,9 @@ class Game extends React.Component {
                 <div className="row">
 
                     <Stars numberOfStars = {this.state.numberOfStars}/>
-              <Button selectedNumbers={this.state.selectedNumbers}/>
+              <Button selectedNumbers={this.state.selectedNumbers}
+                      checkAnswer={this.checkAnswer}
+                        isAnswerCorrect={this.state.isAnswerCorrect}/>
               <Answer selectedNumbers={this.state.selectedNumbers}
                       unselectNumber={this.unselectNumber}/>
                 </div>
