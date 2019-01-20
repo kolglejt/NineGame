@@ -24,3 +24,9 @@ span {
     color: #ddd;
     cursor: not-allowed;
 }
+
+.used {
+    background-color: #aaddaa;
+    color: #99bb99;
+    cursor: not-allowed;
+}
