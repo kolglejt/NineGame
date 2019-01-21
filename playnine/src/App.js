@@ -34,7 +34,9 @@ const Button = (props) => {
     switch (props.isAnswerCorrect) {
         case true:
             button =
-                <button  onClick ={props.acceptAnswer} className='btn btn-success' > <FontAwesomeIcon className='fa-check' icon="check"/> </button>;
+                <button className='btn btn-success'
+                        onClick={props.acceptAnswer}> <FontAwesomeIcon className='fa-check' icon="check"/>
+                </button>;
                 //FontAwesomeIcon className='fa-check' icon="check"
             break;
         case false:
@@ -53,7 +55,8 @@ const Button = (props) => {
 
         <div className='col-2 text-center'>
             {button}
-            <button className='btn btn-warning btm-sm'>
+            <button className='btn btn-warning btm-sm'
+                    onClick={props.redraw}>
                 <FontAwesomeIcon className='fa-sync' icon="sync"/>
             </button>
         </div>
@@ -138,13 +141,20 @@ class Game extends React.Component {
     this.setState(prevState => ({
         usedNumber: prevState.usedNumber.concat(prevState.selectedNumbers),
         selectedNumbers: [],
-        NumbersOfStars: 1 + Math.floor(Math.random() * 9), //new value
+        numberOfStars: 1 + Math.floor(Math.random() * 9), //new value
         isAnswerCorrect: null,
 
     }));
 
     };
-    render () {
+
+    redraw = () => {
+        this.setState(prevState => ({
+            numberOfStars: 1 + Math.floor(Math.random() * 9),
+
+        }));
+    };
+        render () {
         return (
             <div className='container'>
                 <hr />
@@ -153,9 +163,11 @@ class Game extends React.Component {
 
                     <Stars numberOfStars = {this.state.numberOfStars}/>
               <Button selectedNumbers={this.state.selectedNumbers}
+                      acceptAnswer ={this.acceptAnswer}
                       checkAnswer={this.checkAnswer}
-                        isAnswerCorrect={this.state.isAnswerCorrect}
-                      acceptAnswer ={this.acceptAnswer}/>
+                      isAnswerCorrect={this.state.isAnswerCorrect}
+                      redraw = {this.redraw}
+              />
               <Answer selectedNumbers={this.state.selectedNumbers}
                       unselectNumber={this.unselectNumber}/>
                 </div>
