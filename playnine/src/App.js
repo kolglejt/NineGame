@@ -6,9 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; //FontAwesome
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faSync } from '@fortawesome/free-solid-svg-icons';
 library.add(faStar);
 library.add(faCheck);
 library.add(faTimes);
+library.add(faSync);
 
 
 const Stars = (props) => {
@@ -32,7 +34,7 @@ const Button = (props) => {
     switch (props.isAnswerCorrect) {
         case true:
             button =
-                <button className='btn btn-success' onClick={props.acceptAnswer}> <FontAwesomeIcon className='fa-check' icon="check"/> </button>;
+                <button  onClick ={props.acceptAnswer} className='btn btn-success' > <FontAwesomeIcon className='fa-check' icon="check"/> </button>;
                 //FontAwesomeIcon className='fa-check' icon="check"
             break;
         case false:
@@ -49,8 +51,11 @@ const Button = (props) => {
     }
     return(
 
-        <div className='col-2'>
+        <div className='col-2 text-center'>
             {button}
+            <button className='btn btn-warning btm-sm'>
+                <FontAwesomeIcon className='fa-sync' icon="sync"/>
+            </button>
         </div>
 
     );
@@ -133,8 +138,9 @@ class Game extends React.Component {
     this.setState(prevState => ({
         usedNumber: prevState.usedNumber.concat(prevState.selectedNumbers),
         selectedNumbers: [],
-        isAnswerCorrect: null,
         NumbersOfStars: 1 + Math.floor(Math.random() * 9), //new value
+        isAnswerCorrect: null,
+
     }));
 
     };
@@ -149,7 +155,7 @@ class Game extends React.Component {
               <Button selectedNumbers={this.state.selectedNumbers}
                       checkAnswer={this.checkAnswer}
                         isAnswerCorrect={this.state.isAnswerCorrect}
-                        acceptAnswer ={this.acceptAnswer}/>
+                      acceptAnswer ={this.acceptAnswer}/>
               <Answer selectedNumbers={this.state.selectedNumbers}
                       unselectNumber={this.unselectNumber}/>
                 </div>
