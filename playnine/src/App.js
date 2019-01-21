@@ -151,6 +151,8 @@ class Game extends React.Component {
     redraw = () => {
         this.setState(prevState => ({
             numberOfStars: 1 + Math.floor(Math.random() * 9),
+            selectedNumbers: [],
+            isAnswerCorrect: null,
 
         }));
     };
