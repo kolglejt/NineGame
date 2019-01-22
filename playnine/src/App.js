@@ -55,10 +55,11 @@ const Button = (props) => {
 
         <div className='col-2 text-center'>
             {button}
-            <button className='btn btn-warning btm-sm'
-                    onClick={props.redraw}>
+            <button className='btn btn-warning btm-sm' onClick={props.redraw}
+            disabled={props.redraws === 0}
+            >
                 <FontAwesomeIcon className='fa-sync' icon="sync"/>
-            </button>
+             {props.redraws}</button>
         </div>
 
     );
@@ -113,6 +114,7 @@ class Game extends React.Component {
         numberOfStars: 1 + Math.floor(Math.random() * 9),
         usedNumber: [],
         isAnswerCorrect: null,
+        redraws: 5,
 
     };
     selectNumber =(clickedNumber) => {
@@ -149,10 +151,12 @@ class Game extends React.Component {
     };
 
     redraw = () => {
+        if(this.state.redraws === 0) {return; }
         this.setState(prevState => ({
             numberOfStars: 1 + Math.floor(Math.random() * 9),
             selectedNumbers: [],
             isAnswerCorrect: null,
+            redraws: prevState.redraws - 1,
 
         }));
     };
@@ -165,6 +169,7 @@ class Game extends React.Component {
 
                     <Stars numberOfStars = {this.state.numberOfStars}/>
               <Button selectedNumbers={this.state.selectedNumbers}
+                      redraws={this.state.redraws}
                       acceptAnswer ={this.acceptAnswer}
                       checkAnswer={this.checkAnswer}
                       isAnswerCorrect={this.state.isAnswerCorrect}
