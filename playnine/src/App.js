@@ -123,7 +123,7 @@ class Game extends React.Component {
         usedNumber: [],
         isAnswerCorrect: null,
         redraws: 5,
-        doneStatus: 'Game Over',
+        doneStatus: null,
 
     };
     selectNumber =(clickedNumber) => {
@@ -188,11 +188,16 @@ class Game extends React.Component {
                       unselectNumber={this.unselectNumber}/>
                 </div>
                 <br />
-                <Numbers selectedNumbers={this.state.selectedNumbers}
-                         selectNumber={this.selectNumber}
-                         usedNumbers= {this.state.usedNumber}
-                />
-                <DoneFrame doneStatus={this.state.doneStatus}/>
+                { this.state.doneStatus ?
+                    <DoneFrame doneStatus={this.state.doneStatus}/>
+                    :
+                    <Numbers selectedNumbers={this.state.selectedNumbers}
+                             selectNumber={this.selectNumber}
+                             usedNumbers= {this.state.usedNumber}
+                    />
+                }
+
+
 
             </div>
         );
