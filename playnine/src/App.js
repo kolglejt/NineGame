@@ -107,6 +107,14 @@ class Numbers extends React.Component {
 
 Numbers.list = _.range(1, 10); //lodash
 
+const DoneFrame = (props) => {
+        return (
+        <div className='text-center'>
+            <h2>{props.doneStatus}</h2>
+        </div>
+
+        );
+};
 
 class Game extends React.Component {
     state = {
@@ -115,6 +123,7 @@ class Game extends React.Component {
         usedNumber: [],
         isAnswerCorrect: null,
         redraws: 5,
+        doneStatus: 'Game Over',
 
     };
     selectNumber =(clickedNumber) => {
@@ -183,6 +192,8 @@ class Game extends React.Component {
                          selectNumber={this.selectNumber}
                          usedNumbers= {this.state.usedNumber}
                 />
+                <DoneFrame doneStatus={this.state.doneStatus}/>
+
             </div>
         );
     }
