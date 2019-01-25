@@ -19,12 +19,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="204" column="13" lean-forward="true" selection-start-line="204" selection-start-column="13" selection-end-line="204" selection-end-column="13" />
+            <state relative-caret-position="222">
+              <caret line="143" column="32" selection-start-line="143" selection-start-column="32" selection-end-line="143" selection-end-column="32" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
                 <element signature="e#95#155#0" expanded="true" />
                 <element signature="e#236#295#0" expanded="true" />
+                <element signature="e#1490#2611#0" />
+                <element signature="e#2639#2909#0" />
                 <element signature="n#Numbers#0" />
               </folding>
             </state>
@@ -63,7 +65,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="645" />
+    <option name="x" value="640" />
     <option name="y" value="190" />
     <option name="width" value="1280" />
     <option name="height" value="778" />
@@ -74,6 +76,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -90,7 +93,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -144,15 +146,16 @@
       <workItem from="1548100581939" duration="1877000" />
       <workItem from="1548157695720" duration="1195000" />
       <workItem from="1548240240280" duration="1006000" />
-      <workItem from="1548352092298" duration="1898000" />
+      <workItem from="1548352092298" duration="2088000" />
+      <workItem from="1548445807819" duration="265000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15524000" />
+    <option name="totallyTimeSpent" value="15979000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="645" y="190" width="1280" height="778" extended-state="0" />
+    <frame x="640" y="190" width="1280" height="778" extended-state="0" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="npm" order="1" side_tool="true" />
@@ -190,12 +193,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="204" column="13" lean-forward="true" selection-start-line="204" selection-start-column="13" selection-end-line="204" selection-end-column="13" />
+        <state relative-caret-position="222">
+          <caret line="143" column="32" selection-start-line="143" selection-start-column="32" selection-end-line="143" selection-end-column="32" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <element signature="e#95#155#0" expanded="true" />
             <element signature="e#236#295#0" expanded="true" />
+            <element signature="e#1490#2611#0" />
+            <element signature="e#2639#2909#0" />
             <element signature="n#Numbers#0" />
           </folding>
         </state>
