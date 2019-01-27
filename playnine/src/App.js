@@ -128,20 +128,21 @@ const DoneFrame = (props) => {
         return (
         <div className='text-center'>
             <h2>{props.doneStatus}</h2>
-            <button className='btn btn-secondary'>Play Again</button>
+            <button className='btn btn-secondary'> Play Again </button>
         </div>
 
         );
 };
 
 class Game extends React.Component {
+    static randomNumber = () => 1 + Math.floor(Math.random() * 9);
     state = {
         selectedNumbers: [],
-        numberOfStars: 1 + Math.floor(Math.random() * 9),
+        numberOfStars: Game.randomNumber(),
         usedNumber: [],
         isAnswerCorrect: null,
         redraws: 5,
-        doneStatus: 'test',
+        doneStatus: null,
 
     };
     selectNumber = (clickedNumber) => {
@@ -172,7 +173,7 @@ class Game extends React.Component {
         this.setState(prevState => ({
             usedNumber: prevState.usedNumber.concat(prevState.selectedNumbers),
             selectedNumbers: [],
-            numberOfStars: 1 + Math.floor(Math.random() * 9), //new value
+            numberOfStars: Game.randomNumber(), //new value
             isAnswerCorrect: null,
         }), this.updateDoneStatus);
 
@@ -181,7 +182,7 @@ class Game extends React.Component {
     redraw = () => {
         if (this.state.redraws === 0) {return; }
         this.setState(prevState => ({
-            numberOfStars: 1 + Math.floor(Math.random() * 9),
+            numberOfStars: Game.randomNumber(),
             selectedNumbers: [],
             isAnswerCorrect: null,
             redraws: prevState.redraws - 1,
@@ -227,7 +228,8 @@ class Game extends React.Component {
                 </div>
                 <br />
                 { this.state.doneStatus ?
-                    <DoneFrame doneStatus={this.state.doneStatus}/>
+                    <DoneFrame doneStatus={this.state.doneStatus}
+                    />
                     :
                     <Numbers selectedNumbers={this.state.selectedNumbers}
                              selectNumber={this.selectNumber}
