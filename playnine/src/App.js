@@ -128,7 +128,7 @@ const DoneFrame = (props) => {
         return (
         <div className='text-center'>
             <h2>{props.doneStatus}</h2>
-            <button className='btn btn-secondary'> Play Again </button>
+            <button className='btn btn-secondary' onClick={props.resetGame}> Play Again </button>
         </div>
 
         );
@@ -136,7 +136,7 @@ const DoneFrame = (props) => {
 
 class Game extends React.Component {
     static randomNumber = () => 1 + Math.floor(Math.random() * 9);
-    state = {
+    static initialState = () => ( {
         selectedNumbers: [],
         numberOfStars: Game.randomNumber(),
         usedNumber: [],
@@ -144,7 +144,11 @@ class Game extends React.Component {
         redraws: 5,
         doneStatus: null,
 
-    };
+    });
+    state = Game.initialState();
+    resetGame = () => {
+        this.setState(Game.initialState());
+    }
     selectNumber = (clickedNumber) => {
         if (this.state.selectedNumbers.indexOf(clickedNumber) >= 0) {
             return;
@@ -232,6 +236,7 @@ class Game extends React.Component {
                 <br />
                 { this.state.doneStatus ?
                     <DoneFrame doneStatus={this.state.doneStatus}
+                               resetGame = {this.resetGame}
                     />
                     :
                     <Numbers selectedNumbers={this.state.selectedNumbers}
