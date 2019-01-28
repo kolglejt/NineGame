@@ -40,12 +40,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="229" column="18" selection-start-line="229" selection-start-column="18" selection-end-line="229" selection-end-column="18" />
+            <state relative-caret-position="-579">
+              <caret line="192" column="41" lean-forward="true" selection-start-line="192" selection-start-column="41" selection-end-line="192" selection-end-column="41" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
                 <element signature="e#95#155#0" expanded="true" />
                 <element signature="e#236#295#0" expanded="true" />
+                <element signature="e#611#1147#0" />
                 <element signature="n#Numbers#0" />
               </folding>
             </state>
@@ -63,6 +64,11 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>used</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -76,9 +82,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="771" />
-    <option name="y" value="201" />
-    <option name="width" value="1270" />
+    <option name="x" value="838" />
+    <option name="y" value="261" />
+    <option name="width" value="1260" />
     <option name="height" value="778" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -87,6 +93,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -108,7 +115,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -166,21 +172,21 @@
       <workItem from="1548445807819" duration="328000" />
       <workItem from="1548540707390" duration="328000" />
       <workItem from="1548584531527" duration="780000" />
-      <workItem from="1548618642034" duration="237000" />
+      <workItem from="1548618642034" duration="307000" />
+      <workItem from="1548710645790" duration="1560000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17411000" />
+    <option name="totallyTimeSpent" value="19017000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="771" y="201" width="1270" height="778" extended-state="0" />
-    <editor active="true" />
+    <frame x="838" y="261" width="1260" height="778" extended-state="0" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="npm" order="1" side_tool="true" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.15156375" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.15278901" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -189,7 +195,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.29837838" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.2978395" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -240,12 +246,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="229" column="18" selection-start-line="229" selection-start-column="18" selection-end-line="229" selection-end-column="18" />
+        <state relative-caret-position="-579">
+          <caret line="192" column="41" lean-forward="true" selection-start-line="192" selection-start-column="41" selection-end-line="192" selection-end-column="41" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <element signature="e#95#155#0" expanded="true" />
             <element signature="e#236#295#0" expanded="true" />
+            <element signature="e#611#1147#0" />
             <element signature="n#Numbers#0" />
           </folding>
         </state>

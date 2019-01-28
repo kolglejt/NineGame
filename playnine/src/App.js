@@ -99,7 +99,7 @@ class Numbers extends React.Component {
     render() {
         //const arrayOfNumbers = _.range(1, 10); //lodash
         const numberClassName = (number) => {
-            if (this.props.usedNumbers.indexOf(number) >= 0) {
+            if (this.props.usedNumber.indexOf(number) >= 0) {
                 return 'used';
             }
             if (this.props.selectedNumbers.indexOf(number) >= 0) {
@@ -173,8 +173,8 @@ class Game extends React.Component {
         this.setState(prevState => ({
             usedNumber: prevState.usedNumber.concat(prevState.selectedNumbers),
             selectedNumbers: [],
-            numberOfStars: Game.randomNumber(), //new value
             isAnswerCorrect: null,
+            numberOfStars: Game.randomNumber(), //new value
         }), this.updateDoneStatus);
 
     };
@@ -187,25 +187,26 @@ class Game extends React.Component {
             isAnswerCorrect: null,
             redraws: prevState.redraws - 1,
 
-        }));
+        }), this.updateDoneStatus);
     };
 
     possibleSolutions = ({numberOfStars, usedNumber}) => {
         const possibleNumbers = _.range(1, 10).filter(number =>
             usedNumber.indexOf(number) === -1
         );
+
         return possibleCombinationSum(possibleNumbers, numberOfStars)
     };
 
     updateDoneStatus = () => {
         this.setState(prevState => {
             if(prevState.usedNumber.length === 9) {
-                return {doneStatus: 'Done, Nice!'}
+                return { doneStatus: 'Done, Nice!' };
             }
             if (prevState.redraws === 0 && !this.possibleSolutions(prevState)) {
-                return {doneStatus: 'Game Over!'};
+                return { doneStatus: 'Game Over!' };
             }
-        })
+        });
     };
 
         render () {
@@ -217,11 +218,13 @@ class Game extends React.Component {
 
                     <Stars numberOfStars = {this.state.numberOfStars}/>
               <Button selectedNumbers={this.state.selectedNumbers}
-                      redraws={this.state.redraws}
                       acceptAnswer ={this.acceptAnswer}
                       checkAnswer={this.checkAnswer}
                       isAnswerCorrect={this.state.isAnswerCorrect}
                       redraw = {this.redraw}
+                      redraws={this.state.redraws}
+
+
               />
               <Answer selectedNumbers={this.state.selectedNumbers}
                       unselectNumber={this.unselectNumber}/>
@@ -233,7 +236,7 @@ class Game extends React.Component {
                     :
                     <Numbers selectedNumbers={this.state.selectedNumbers}
                              selectNumber={this.selectNumber}
-                             usedNumbers= {this.state.usedNumber}
+                             usedNumber= {this.state.usedNumber}
                     />
                 }
 
