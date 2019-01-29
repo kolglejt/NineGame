@@ -124,15 +124,22 @@ class Numbers extends React.Component {
 
 Numbers.list = _.range(1, 10); //lodash
 
-const DoneFrame = (props) => {
-        return (
-        <div className='text-center'>
-            <h2>{props.doneStatus}</h2>
-            <button className='btn btn-secondary' onClick={props.resetGame}> Play Again </button>
-        </div>
 
-        );
-};
+
+
+        const DoneFrame = (props) => {
+            return (
+
+                   <div className='text-center'>
+                       <h2>{props.doneStatus}</h2>
+                       <button className='btn btn-secondary' onClick={props.resetGame}> Play Again</button>
+                   </div>
+
+            );
+        };
+
+
+
 
 class Game extends React.Component {
     static randomNumber = () => 1 + Math.floor(Math.random() * 9);
@@ -146,6 +153,18 @@ class Game extends React.Component {
 
     });
     state = Game.initialState();
+    componentDidMount() {
+            this.interval = setInterval(() => {
+                this.setState(Game.initialState());
+            }, 3000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
+
+
     resetGame = () => {
         this.setState(Game.initialState());
     }
@@ -194,6 +213,7 @@ class Game extends React.Component {
         }), this.updateDoneStatus);
     };
 
+
     possibleSolutions = ({numberOfStars, usedNumber}) => {
         const possibleNumbers = _.range(1, 10).filter(number =>
             usedNumber.indexOf(number) === -1
@@ -234,9 +254,13 @@ class Game extends React.Component {
                       unselectNumber={this.unselectNumber}/>
                 </div>
                 <br />
+
                 { this.state.doneStatus ?
+
                     <DoneFrame doneStatus={this.state.doneStatus}
                                resetGame = {this.resetGame}
+
+
                     />
                     :
                     <Numbers selectedNumbers={this.state.selectedNumbers}
