@@ -125,9 +125,7 @@ class Numbers extends React.Component {
 Numbers.list = _.range(1, 10); //lodash
 
 
-
-
-        const DoneFrame = (props) => {
+const DoneFrame = (props) => {
             return (
 
                    <div className='text-center'>
@@ -138,10 +136,27 @@ Numbers.list = _.range(1, 10); //lodash
             );
         };
 
+class Timer extends React.Component {
 
+    render(){
+        return (
 
+            <div className='text-right'>
+                <button onClick={this.props.startCountDown}> Start</button>
+                <h2 className='timer'>{this.props.minutes}:{this.props.seconds}</h2>
+            </div>
+
+        );
+    }
+}
 
 class Game extends React.Component {
+    constructor(props) {
+        super(props);
+        this.startCountDown = this.startCountDown.bind(this);
+        this.tick = this.tick.bind(this);
+    }
+
     static randomNumber = () => 1 + Math.floor(Math.random() * 9);
     static initialState = () => ( {
         selectedNumbers: [],
@@ -150,20 +165,11 @@ class Game extends React.Component {
         isAnswerCorrect: null,
         redraws: 5,
         doneStatus: null,
+        minutes: '01',
+        seconds: '00',
 
     });
     state = Game.initialState();
-    componentDidMount() {
-            this.interval = setInterval(() => {
-                this.setState(Game.initialState());
-            }, 3000);
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.interval);
-    }
-
-
 
     resetGame = () => {
         this.setState(Game.initialState());
@@ -223,6 +229,7 @@ class Game extends React.Component {
     };
 
     updateDoneStatus = () => {
+
         this.setState(prevState => {
             if(prevState.usedNumber.length === 9) {
                 return { doneStatus: 'Done, Nice!' };
@@ -233,11 +240,63 @@ class Game extends React.Component {
         });
     };
 
+    tick() {
+        var min = Math.floor(this.secondsRemaining / 60);
+        var sec = this.secondsRemaining - (min * 60);
+
+        this.setState({
+            minutes: min,
+            seconds: sec,
+        })
+
+        if (sec < 10) {
+            this.setState({
+                seconds: "0" + this.state.seconds,
+            })
+
+        }
+
+        if (min < 10) {
+            this.setState({
+                minutes: "0" + min,
+            })
+
+        }
+
+        if (min === 0 && sec === 0) {
+
+            clearInterval(this.interval);
+            this.setState(() => ({
+                redraws: 0,
+                doneStatus: 'Game Over',
+            }));
+
+
+
+        }
+
+
+        this.secondsRemaining--
+    }
+
+
+
+    startCountDown() {
+        this.interval = setInterval(this.tick, 1000);
+        let time = this.state.minutes;
+        this.secondsRemaining = time * 60;
+    }
+
         render () {
         return (
             <div className='container'>
                 <hr />
                 <h3>Play Nine</h3>
+                <Timer minutes={this.state.minutes}
+                       seconds={this.state.seconds}
+                       startCountDown={this.startCountDown}
+
+                />
                 <div className="row">
 
                     <Stars numberOfStars = {this.state.numberOfStars}/>

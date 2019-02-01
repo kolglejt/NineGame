@@ -40,14 +40,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="156" column="23" selection-start-line="156" selection-start-column="23" selection-end-line="156" selection-end-column="23" />
+            <state relative-caret-position="466">
+              <caret line="279" column="5" lean-forward="true" selection-start-line="279" selection-start-column="5" selection-end-line="279" selection-end-column="5" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
                 <element signature="e#95#155#0" expanded="true" />
                 <element signature="e#236#295#0" expanded="true" />
                 <element signature="e#611#1147#0" />
+                <element signature="e#1175#1464#0" />
+                <element signature="e#2641#2911#0" />
                 <element signature="n#Numbers#0" />
+                <element signature="e#3907#4190#0" />
               </folding>
             </state>
           </provider>
@@ -174,12 +177,13 @@
       <workItem from="1548584531527" duration="780000" />
       <workItem from="1548618642034" duration="307000" />
       <workItem from="1548710645790" duration="1935000" />
-      <workItem from="1548801466350" duration="669000" />
+      <workItem from="1548801466350" duration="1375000" />
+      <workItem from="1549056708420" duration="3394000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20061000" />
+    <option name="totallyTimeSpent" value="24161000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
@@ -248,14 +252,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="156" column="23" selection-start-line="156" selection-start-column="23" selection-end-line="156" selection-end-column="23" />
+        <state relative-caret-position="466">
+          <caret line="279" column="5" lean-forward="true" selection-start-line="279" selection-start-column="5" selection-end-line="279" selection-end-column="5" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <element signature="e#95#155#0" expanded="true" />
             <element signature="e#236#295#0" expanded="true" />
             <element signature="e#611#1147#0" />
+            <element signature="e#1175#1464#0" />
+            <element signature="e#2641#2911#0" />
             <element signature="n#Numbers#0" />
+            <element signature="e#3907#4190#0" />
           </folding>
         </state>
       </provider>
